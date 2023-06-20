@@ -1,21 +1,20 @@
-// import firebase from "firebase";
-import { initializeApp } from "firebase/app";
-import {getAuth, FacebookAuthProvider} from "firebase/auth"
+import firebase from "firebase";
 
+  const firebaseConfig = firebase.initializeApp({
+    apiKey: "AIzaSyDFLOy4HcrAdVapm1IRW3AFeOq3esD8eCw",
+    authDomain: "final-fb-c91da.firebaseapp.com",
+    projectId: "final-fb-c91da",
+    storageBucket: "final-fb-c91da.appspot.com",
+    messagingSenderId: "801225291705",
+    appId: "1:801225291705:web:d615b15ae3b80f1ab16868"
+  });
+  
+  const auth =firebaseConfig.auth();
+ 
+  const provider = new firebase.auth.FacebookAuthProvider();
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyC_jodMW0lw_2nSdzWpYFFHOx0lJ23GK1w",
-    authDomain: "fb-clone-96bfc.firebaseapp.com",
-    projectId: "fb-clone-96bfc",
-    storageBucket: "fb-clone-96bfc.appspot.com",
-    messagingSenderId: "333760795571",
-    appId: "1:333760795571:web:1cfd202b7d841b248bb1c6"
-  };
-  const app = initializeApp(firebaseConfig);
-  // const auth =firebaseConfig.auth();
-  const auth=getAuth(app);
-  var provider = new FacebookAuthProvider();
+  const db = firebaseConfig.firestore();
+  const storage = firebase.storage();
   
 
-  export{auth,provider}
+  export{auth,provider,db,storage}

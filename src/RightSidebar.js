@@ -7,7 +7,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function () {
+export default function RightSidebar() {
   return (
     <div className='widget'>
       <div className='widget_header'>

@@ -1,23 +1,28 @@
 import React from 'react'
 import "./css/login.css"
 import { auth, provider,} from './firebase'
-import{ signInWithPopup} from "firebase/auth";
+import {useStateValue} from "./StateProvider"
+
 
 
 function Login() {
 
-  const signIn=()=>{
-  signInWithPopup( auth,provider)
-  .then(result => {
-    // const user = result.user;
-    console.log(result)
-  }).catch(error => console.log(error))
- }
-//     const signIn=()=>{
-//     auth.signInWithPopup(provider).then(result=>{
-//         console.log(result);
-//     }).catch(error=>console.log(error))
-// }
+    const[{},dispatch] = useStateValue();
+    const signIn=()=>{
+    auth.signInWithPopup(provider).then(result=>{
+        var credential = result.credential;
+
+        const photoURL = `${result.user.photoURL}?access_token=${credential.accessToken}`;
+        
+        dispatch({
+          type:"SET_USER",
+          user:{
+            displayName:result.user.displayName,
+            photoURL:photoURL
+          }
+        })
+    }).catch(error=>console.log(error))
+}
 
   return (
     <div className='login_wrapper'>

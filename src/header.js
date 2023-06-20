@@ -10,9 +10,12 @@ import AppsIcon from '@mui/icons-material/Apps';
 import ForumIcon from '@mui/icons-material/Forum';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import {useStateValue} from './StateProvider';
 
 
-export default function header() {
+export default function Header() {
+
+ const[{user}, dispatch]=useStateValue()
   return (
     <div className='header'>
         <div className='header_left'>
@@ -38,8 +41,8 @@ export default function header() {
         </div>
         <div className='header_right'>
             <div className='header_info'>
-                <Avatar src='https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/12/01170355/73027505_2435523350041800_7197995791219918035_n.jpg'/>
-                <h5>Subhankar Agarwal</h5>
+                <Avatar src={user.photoURL}/>
+                <h5>{user.displayName}</h5>
             </div>
             <IconButton>
                 <AppsIcon/>
