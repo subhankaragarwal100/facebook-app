@@ -24,14 +24,14 @@ function App() {
         </div>
         )
     }
-    {/* <div className="App">
-      <Header/>
-      <div className='app_body'>
-        <Sidebar/>
-        <Feed/>
-        <RightSidebar/>
-      </div>
-    </div> */}
+    {/* // { <div className="App">
+    //   <Header/>
+    //   <div className='app_body'>
+    //     <Sidebar/>
+    //     <Feed/>
+    //     <RightSidebar/>
+    //   </div>
+    // </div> } */}
     </>
   );
 }
